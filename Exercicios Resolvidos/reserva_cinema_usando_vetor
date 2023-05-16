@@ -1,0 +1,83 @@
+/********************************************************************
+RESERVA DE CINEMA - EXERCICIO VETORIAL EM C
+
+programa em c que faz reservas de cadeiras de cinema, usando somente uma fileira com 10 cadeiras, utilizando vetor, exibindo as 10 cadeires disponíveis B 1, B 2, ... e excluindo da exibição conforme são reservadas, caso o usuário digite algo invalido ou tente reservar uma cadeira já reservada aparece um aviso
+*********************************************************************/ 
+
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+int main() {
+    bool cadeiras[10] = { false }; // Vetor para representar o estado de cada cadeira
+    char repetidor, auxiliar[1];
+    int numeroCadeira;
+
+    void ConversorStringToNumber(){
+        if (strcmp(auxiliar, "B1") == 0)
+            numeroCadeira = 1;
+            else if (strcmp(auxiliar, "B2") == 0) 
+                numeroCadeira = 2;
+                else if (strcmp(auxiliar, "B3") == 0) 
+                    numeroCadeira = 3;
+                    else if (strcmp(auxiliar, "B4") == 0) 
+                        numeroCadeira = 4;
+                        else if (strcmp(auxiliar, "B5") == 0)
+                            numeroCadeira = 5;
+                            else if (strcmp(auxiliar, "B6") == 0)
+                                numeroCadeira = 6;
+                                else if (strcmp(auxiliar, "B7") == 0) 
+                                    numeroCadeira = 7;
+                                    else if (strcmp(auxiliar, "B8") == 0)
+                                        numeroCadeira = 8;
+                                        else if (strcmp(auxiliar, "B9") == 0) 
+                                            numeroCadeira = 9;
+                                            else if (strcmp(auxiliar, "B10") == 0)
+                                                numeroCadeira = 10;
+                                                else 
+                                                    printf("Cadeira inválida!\n");
+    }
+    void limparReposicionarCursor() {
+    printf("\033[2J");  // Limpa a tela
+    printf("\033[H");   // Reposiciona o cursor para o início
+}
+
+    do {
+        limparReposicionarCursor();
+        printf("--------------------------------------------------------------------------------\n");
+        printf("                         RESERVE SUA CADEIRA DE CINEMA                          \n"); 
+        printf("--------------------------------------------=-----------------------------------\n");
+        for (int i = 0; i < 10; i++) { // imprime as cadeiras disponiveis na tela
+            if (!cadeiras[i]) { // verifica se a cadeira esta vazia 
+                // A expressão if (!cadeiras[i]) verifica se o valor na posição i do vetor cadeiras é falso (ou seja, cadeiras[i] é false).
+                // O operador ! é o operador de negação lógica em C. Ele inverte o valor de uma expressão booleana. Portanto, !cadeiras[i] será verdadeiro se cadeiras[i] for falso e será falso se cadeiras[i] for verdadeiro.
+                printf("[ B %d ] ", i + 1);
+            } else {
+                printf("--- ");
+            }
+        } // 1ª passo: imprime as cadeiras disponiveis na tela
+        printf("\n");
+
+        printf("\nReservar cadeira (1-10): "); // 2ª passo: recebe valor da cadeira 
+        scanf(" %s", auxiliar); 
+        
+        ConversorStringToNumber();
+        
+        if (numeroCadeira < 1 || numeroCadeira > 10) { // 3ª passo:verifica se o numero da cadeira eh valido
+            printf("Cadeira inválida!\n");
+        } else if (cadeiras[numeroCadeira - 1]) { // 4 ª passo:verificar se a posicao esta ocupada
+            printf("Essa cadeira já está reservada!\n");
+        } else {
+            cadeiras[numeroCadeira - 1] = true; // 5ª passo: ocupa a cadeira
+            printf("Cadeira [ B %d ] reservada com sucesso!\n", numeroCadeira);
+        }
+
+        printf("Deseja reservar outra cadeira? (S/N): "); // 6 ª passo: reinicia o programa
+        scanf(" %c", &repetidor);
+    } while (repetidor == 'S' || repetidor == 's');
+
+    return 0;
+}
+
+
