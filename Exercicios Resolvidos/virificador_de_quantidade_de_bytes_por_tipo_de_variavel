@@ -1,9 +1,9 @@
+
+
+
 /******************************************************************************
 
   V E R I F I C A D O R   DE   Q N T   DE  B Y T E S   DO   A R G U M E N T O
-
-Programa que verifica quantos bytes cada tipo de argumento (variavel) utilizaca
-É utilizado o "sizeof" para verificar quantos bytes 
 
 *******************************************************************************/
 #include <stdio.h>
@@ -19,6 +19,10 @@ int main()
     printf("char tem: %ld\n", sizeof letra);
     printf("float tem: %ld\n", sizeof saldo);
     printf("double tem: %ld\n", sizeof valor);
+    printf("int tem: %ld\n", sizeof(int));
+    printf("char tem: %ld\n", sizeof(char));
+    printf("float tem: %ld\n", sizeof(float));
+    printf("double tem: %ld\n", sizeof(double));
 
     return 0;
 }
