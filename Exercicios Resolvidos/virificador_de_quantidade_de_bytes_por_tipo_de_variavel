@@ -11,6 +11,7 @@ int main()
     char letra = 'a';
     float saldo = 1.5;
     double valor = 3.5;
+    int numeros[4] = {1, 4, 38, 45};
     
     printf("-------------------------------------------------------------\n");
     printf("        V E R F I C A D O R    DE   B Y T E S                \n");
@@ -21,6 +22,7 @@ int main()
     printf("char tem: %ld\n", sizeof letra);
     printf("float tem: %ld\n", sizeof saldo);
     printf("double tem: %ld\n", sizeof valor);
+    printf("%ld", sizeof numeros);
     
     printf("\n");
     
