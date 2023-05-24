@@ -1,0 +1,23 @@
+/******************************************************************************
+
+Programa que exibe 10 valores de um vetor e o somatorio dos mesmos
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int vetor[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int comp;
+    comp = sizeof vetor / sizeof(int); // delaclara o valor de comp como = tamanho em bytes do vetor sobre a quantidade de uma variável inteira que é 4 bytes
+    int k;
+    int soma = 0;
+    
+    for ( k = 0 ; k < comp; k++ ){
+        printf("%d ", vetor[k]);
+        soma = soma + vetor[k];
+    }
+    printf("\nSomatorio: %d", soma);
+    return 0;
+}
