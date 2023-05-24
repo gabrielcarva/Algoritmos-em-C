@@ -1,0 +1,20 @@
+/******************************************************************************
+
+Programa que exibe os valores de um vetor, usando uma variável que compreende o temanho do vetor automatizamente (comp)
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int vetor[5] = {1, 2, 3, 4, 5};
+    int comp;
+    comp = sizeof vetor / sizeof(int); // delaclara o valor de comp como = tamanho em bytes do vetor sobre a quantidade de uma variável inteira que é 4 bytes
+    int k;
+    for ( k = 0 ; k < comp; k++ ){
+        printf("%d ", vetor[k]);
+    }
+    printf("%d", comp);
+    return 0;
+}
