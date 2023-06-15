@@ -1,0 +1,30 @@
+/******************************************************************************
+
+Aula 14 junho 2024
+
+Matriz_Input_Usuario_Exibir_Valores
+Programa em C utilizndo matriz 3x3, com imput de valores pelo usuário e exibindo os valores de cada posição
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+    int mat[3][3];
+    int k = 0, j = 0, n = 0;
+    for( j = 0 ; j < 3 ; j++ ){
+        for( k = 0 ; k < 3 ; k++ ){
+            n++;
+            printf("Numero %d: ", n);
+            scanf("%d", &mat[j][k]);
+        }
+    }
+    for ( j = 0 ; j < 3 ; j++ ){
+        for ( k = 0 ; k < 3 ; k = k + 1 ){
+            printf("%d", mat[j][k]);
+            if ( k == 2 )
+                printf("\n");
+        }
+    }
+    return 0;
+}
